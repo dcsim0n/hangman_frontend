@@ -26,7 +26,7 @@ class SignUp extends React.Component {
       body: JSON.stringify(this.state)
     }).then(res => res.json())
    .then(user =>{ 
-     //this.props.history.push("/")
+     this.props.history.push("/")
      this.props.setUser(user)
     })
     event.target.reset()
@@ -45,8 +45,10 @@ class SignUp extends React.Component {
           onChange={(e) => this.setState({ password: e.target.value })} />
       </div>
     
-      <Link to="/home" ><button className="ui button" type="submit">Sign Up</button></Link>
-
+      <button className="ui button" type="submit">Sign Up</button>
     </form>
 }
 
+const SignUpWithRouter = withRouter(SignUp)
+
+export default SignUpWithRouter;
