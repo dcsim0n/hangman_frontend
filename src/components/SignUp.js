@@ -1,15 +1,20 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+
 
 class SignUp extends React.Component {
-  state = {
-    name: "",
-    password: ""
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      name: "",
+      password: ""
+    }
   }
+  
 
-  addUser = (user) => {
-    let newUsers = this.state.users.concat(user)
-    this.setState({ users: newUsers })
-  }
+  
 
   saveUser = (event) => {
     event.preventDefault()
@@ -20,7 +25,10 @@ class SignUp extends React.Component {
       },
       body: JSON.stringify(this.state)
     }).then(res => res.json())
-   .then(user => this.props.addUser(user))
+   .then(user =>{ 
+     this.props.history.push("/")
+     this.props.setUser(user)
+    })
     event.target.reset()
   }
 
@@ -38,8 +46,9 @@ class SignUp extends React.Component {
       </div>
     
       <button className="ui button" type="submit">Sign Up</button>
-
     </form>
 }
 
-export default SignUp;
+const SignUpWithRouter = withRouter(SignUp)
+
+export default SignUpWithRouter;
