@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
 
 import { Route, Switch } from 'react-router-dom'
 
@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <div className="App">
       <Switch>
-        < Route path="/signup" component={SignIn} />
+        < Route path="/signup" component={SignUp} />
       </Switch>
       </div>
     );

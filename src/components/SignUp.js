@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SignIn extends React.Component {
+class SignUp extends React.Component {
   state = {
     name: "",
     password: ""
@@ -37,9 +37,9 @@ class SignIn extends React.Component {
           onChange={(e) => this.setState({ password: e.target.value })} />
       </div>
     
-      <button className="ui button" type="submit">Sign In</button>
+      <button className="ui button" type="submit">Sign Up</button>
 
     </form>
 }
 
-export default SignIn;
+export default SignUp;
