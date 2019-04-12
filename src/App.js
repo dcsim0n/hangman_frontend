@@ -4,7 +4,6 @@ import './App.css';
 import SignUp from './components/SignUp';
 import GameContainer from './components/GameContainer';
 import LogIn from './components/LogIn';
-import Header from './components/Header';
 
 import { Route, Switch } from 'react-router-dom'
 //import { createBrowserHistory } from "history";
@@ -17,7 +16,8 @@ class App extends Component {
     super(props)
   
     this.state = {
-      user: null
+      user: localStorage.getItem("user"),
+      errors: null
     }
   }
   //customHistory = createBrowserHistory()
@@ -25,20 +25,24 @@ class App extends Component {
   setUser = (payload) => {
     console.log('user', payload)
     localStorage.setItem('token', payload.token)
-    
-    this.setState({user: payload.user})
+    localStorage.setItem('user', payload.user)
+    this.setState({user: payload.user, errors: null})
     //this.forceUpdate()
+  }
+
+  setError = (payload) => {
+    this.setState({errors: payload})
   }
   
 
   render() {
     return (
       <div className="App">
-      < Header />
-      < LogIn />
+      
+      
       <Switch>
         < Route path="/signup" render={()=><SignUp setUser={this.setUser}/>  } />
-        < Route path="/" component={GameContainer} />
+        < Route path="/" render={ () => this.state.user === null ? < LogIn setUser={this.setUser} setError={this.setError} errors={this.state.errors}/> : <GameContainer setUser={this.setUser} />}  /> 
       </Switch>
       </div>
     );
