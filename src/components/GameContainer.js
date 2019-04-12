@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Gallows from './Gallows';
 
 export default class GameContainer extends Component {
     constructor(props) {
@@ -10,11 +11,16 @@ export default class GameContainer extends Component {
          started: false
       }
     }
+    incrementGuesses = (e)=>{
+      const newGuesses = this.state.guesses + 1
+      this.setState({guesses: newGuesses})
+    }
     
   render() {
     return (
       <div>
-        Hello World
+        
+        <Gallows guesses={this.state.guesses} />
         
       </div>
     )
