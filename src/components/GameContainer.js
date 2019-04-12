@@ -11,12 +11,17 @@ export default class GameContainer extends Component {
          started: false
       }
     }
+    incrementGuesses = (e)=>{
+      const newGuesses = this.state.guesses + 1
+      this.setState({guesses: newGuesses})
+    }
     
   render() {
     return (
       <div>
         
-        <Gallows />
+        <Gallows guesses={this.state.guesses} />
+        
       </div>
     )
   }
