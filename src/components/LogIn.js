@@ -1,5 +1,6 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 
  class LogIn extends React.Component {
@@ -15,11 +16,28 @@ import React from 'react';
     
     handleSubmit=(event) => {
         event.preventDefault()
-        
-       
-        }
+        fetch("http://localhost:3000/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(this.state)
+        })
+        .then(res => {
+            return res.json()})
+        .then( user => {
+            if (user.error)
+                this.props.setError(user)
+            else {
+                this.props.history.push("/")
+                this.props.setUser(user)}
+        })
+    }        
+
+     
 
      render = () =>
+        <div><p> {this.props.errors ? this.props.errors.error : null} </p>
         <form className="form-type-material" onSubmit={this.handleSubmit} >
         <div className="form-group">
             {/* <label>Username</label> */}
@@ -34,7 +52,10 @@ import React from 'react';
         
         <button className="ui button" type="submit">Log In</button>
         </form>
+        </div>
 }
 
 
-export default LogIn;
+const LogInWithRouter = withRouter(LogIn)
+
+export default LogInWithRouter;
