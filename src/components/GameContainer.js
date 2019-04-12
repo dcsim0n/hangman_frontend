@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Gallows from './Gallows';
 import StartBtn from './StartBtn'
+import Header from './Header'
 export default class GameContainer extends Component {
     constructor(props) {
       super(props)
@@ -52,7 +53,7 @@ export default class GameContainer extends Component {
   render() {
     return (
       <div>
-        
+        <Header logout={this.props.logout}/>
         <Gallows guesses={this.state.guesses} />
         {this.state.started 
           ? 
