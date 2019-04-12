@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Gallows from './Gallows';
-
+import StartBtn from './StartBtn'
 export default class GameContainer extends Component {
     constructor(props) {
       super(props)
@@ -44,12 +44,23 @@ export default class GameContainer extends Component {
         })
       })
     }
+    startGame = ()=>{
+      this.setState({started: true})
+      this.getWord()
+    }
     
   render() {
     return (
       <div>
         
         <Gallows guesses={this.state.guesses} />
+        {this.state.started 
+          ? 
+          {/*Show other compoents */}
+          : 
+          <StartBtn 
+          handleStart={this.startGame}/>
+        }
         
         
       </div>

@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
 import './App.css';
 import SignUp from './components/SignUp';
 import GameContainer from './components/GameContainer';
 import LogIn from './components/LogIn';
-
 import { Route, Switch } from 'react-router-dom'
-//import { createBrowserHistory } from "history";
 
 
 
