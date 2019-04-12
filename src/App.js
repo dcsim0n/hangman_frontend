@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
 import './App.css';
 import SignUp from './components/SignUp';
 import GameContainer from './components/GameContainer';
 import LogIn from './components/LogIn';
-import Header from './components/Header';
-
 import { Route, Switch } from 'react-router-dom'
-//import { createBrowserHistory } from "history";
 
 
 
@@ -34,7 +30,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      < Header />
       < LogIn />
       <Switch>
         < Route path="/signup" render={()=><SignUp setUser={this.setUser}/>  } />
