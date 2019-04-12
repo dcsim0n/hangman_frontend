@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Gallows from './Gallows';
 
 export default class GameContainer extends Component {
     constructor(props) {
@@ -14,8 +15,8 @@ export default class GameContainer extends Component {
   render() {
     return (
       <div>
-        Hello World
         
+        <Gallows />
       </div>
     )
   }
