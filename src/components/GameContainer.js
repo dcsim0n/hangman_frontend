@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Gallows from './Gallows';
 import StartBtn from './StartBtn'
+import WordContainer from './WordContainer';
 export default class GameContainer extends Component {
     constructor(props) {
       super(props)
@@ -14,7 +15,11 @@ export default class GameContainer extends Component {
     }
     incrementGuesses = (e)=>{
       const newGuesses = this.state.guesses + 1
-      this.setState({guesses: newGuesses})
+      if (newGuesses < 6){
+        this.setState({guesses: newGuesses})
+      }else{ //Game Over
+        this.setState({guesses:0, started:false})
+      }
     }
 
     getWord= ()=>{
@@ -51,12 +56,15 @@ export default class GameContainer extends Component {
     
   render() {
     return (
-      <div>
+      <div className="ui container">
         
         <Gallows guesses={this.state.guesses} />
         {this.state.started 
           ? 
-          {/*Show other compoents */}
+          <WordContainer 
+          definition={this.state.definition} 
+          letters={this.state.letters} 
+          incrementGuesses={this.incrementGuesses}/>
           : 
           <StartBtn 
           handleStart={this.startGame}/>
