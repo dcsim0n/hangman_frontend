@@ -10,13 +10,15 @@ export default class LetterBox extends Component {
       }
     }
     makeGuess = (e) =>{
-        console.log('e.target.value :', e.target.value);
+        // console.log('e.target.value :', e.target.value);
         const guess = e.target.value
         if (guess === this.state.letter){
             this.setState({display:guess})
-        }else{
-            this.props.incrementGuesses()
         }
+
+        //const guess = e.target.value
+        const letter = this.state.letter
+        this.props.incrementGuesses({guess, letter})
     }
     
   render() {

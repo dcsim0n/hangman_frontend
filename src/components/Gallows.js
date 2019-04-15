@@ -10,8 +10,6 @@ export default class Gallows extends Component {
         const ctx = this.gallowsRef.current.getContext("2d")
         const bg = new Image()
         bg.src = gallowsImg
-        console.log("Drawing...")
-        console.log(bg)
         //fixes small bug of bg image not getting rendered
         bg.onload = function(){
           ctx.drawImage(bg,0,0)
@@ -19,7 +17,6 @@ export default class Gallows extends Component {
     }
     componentDidUpdate(){
       const ctx = this.gallowsRef.current.getContext('2d')
-      console.log('drawing :', this.props.guesses);
       this.drawMan(ctx,this.props.guesses)
       
     }

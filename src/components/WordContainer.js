@@ -10,7 +10,7 @@ export default function WordContainer(props) {
         </div>
         <div className="row">
             <div className="column">
-                <p>{props.definition}</p>
+                <p className="ui text container">{props.definition}</p>
             </div>
         </div>
     </div>

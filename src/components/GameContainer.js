@@ -7,19 +7,35 @@ export default class GameContainer extends Component {
       super(props)
     
       this.state = {
-         guesses: 0,
+         wrongGuesses: 0,
+         correctGuesses: 0,
          letters: [ ],
          definition: "",
          started: false
       }
     }
-    incrementGuesses = (e)=>{
-      const newGuesses = this.state.guesses + 1
-      if (newGuesses < 6){
-        this.setState({guesses: newGuesses})
-      }else{ //Game Over
-        this.setState({guesses:0, started:false})
+    incrementGuesses = (letterBox)=>{
+      //const newGuesses = this.state.guesses + 1
+      // if (newGuesses < 6){
+      //   this.setState({guesses: newGuesses})
+      // }else{ //Game Over
+      //   this.setState({guesses:0, started:false})
+      // }
+      console.log('letterBox', letterBox)
+      if(letterBox.letter === letterBox.guess){
+        this.setState({correctGuesses: this.state.correctGuesses + 1 },console.log)
+
+      }else if (this.state.wrongGuesses < 5){
+        this.setState({wrongGuesses: this.state.wrongGuesses +1 })
+      }else{ //Restart game
+        this.setState({
+          started: false,
+          wrongGuesses: 0,
+          correctGuesses: 0,
+          letters: []
+        })
       }
+      
     }
 
     getWord= ()=>{
@@ -56,9 +72,9 @@ export default class GameContainer extends Component {
     
   render() {
     return (
-      <div className="ui container">
+      <div className="ui center aligned container">
         
-        <Gallows guesses={this.state.guesses} />
+        <Gallows guesses={this.state.wrongGuesses} />
         {this.state.started 
           ? 
           <WordContainer 
