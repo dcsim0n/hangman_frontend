@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 
+
  class LogIn extends React.Component {
 
     constructor(props) {
@@ -36,21 +37,45 @@ import { withRouter } from 'react-router-dom';
      
 
      render = () =>
+     <div>
+     
+        <div className="ui middle aligned center aligned grid">
+            <div className="column">
+                <h2 className="ui image header">
+            <div className="content">
+                Log-in to your account
+            </div>
+                </h2>
         <div><p> {this.props.errors ? this.props.errors.error : null} </p>
-        <form className="ui form" onSubmit={this.handleSubmit} >
-        <div className="field">
-            {/* <label>Username</label> */}
+
+        <form className="ui large form" onSubmit={this.handleSubmit} >
+        <div className="ui stacked secondary segment">
+        <div class="field">
+        <div class="ui left icon input">
+        <i class="user icon"></i>           
             <input type="text" placeholder="Username" name="name"
             onChange={(e) => this.setState({ name: e.target.value })} />
         </div>
-        <div className="field">
-            {/* <label>Password</label> */}
+        </div>
+        </div> 
+        <div className="ui stacked secondary segment">
+            <div className="field">
+            <div className="ui left icon input">
+            <i className="lock icon"></i>
             <input type="password" name="password" placeholder="Password"
             onChange={(e) => this.setState({ password: e.target.value })} />
         </div>
+        </div>
+            </div>
         
-        <button className="ui button" type="submit">Log In</button>
+        <button className="ui fluid large teal submit button"  type="submit">Log In</button>
         </form>
+        <div class="ui message">
+      New to us? <a href="/signup">Register</a>
+    </div>
+        </div>
+        </div>
+        </div>
         </div>
 }
 
