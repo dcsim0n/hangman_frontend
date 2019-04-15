@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import FaceImg from '../assets/face_small.png'
 
 
 
@@ -46,7 +47,8 @@ import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui
      <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
        <Grid.Column style={{ maxWidth: 450 }}>
          <Header as='h2' color='teal' textAlign='center'>
-           <Image src='/logo.png' /> Log-in to your account
+         <Image src={FaceImg} />
+            Log-in to your account
          </Header>
          <p><p> {this.props.errors ? this.props.errors.error : null} </p></p>
          <Form size='large' onSubmit={this.handleSubmit}>

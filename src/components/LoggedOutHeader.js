@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { Header, Segment } from 'semantic-ui-react'
-
 class LoggedOutHeader extends Component {
 
     render () {
