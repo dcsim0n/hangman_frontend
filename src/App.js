@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import SignUp from './components/SignUp';
 import GameContainer from './components/GameContainer';
 import LogIn from './components/LogIn';
@@ -39,7 +38,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App ui center aligned container">
       
       
       <Switch>
