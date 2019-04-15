@@ -2,11 +2,18 @@ import React from 'react'
 import LetterBox from './LetterBox';
 
 export default function WordContainer(props) {
+  const letterBoxes = function(letters){
+    return letters.map((letter,index)=>{
+      return <LetterBox key={index} 
+      value={letter}
+      index={index} />
+    })
+  }
   return (
     <div className="ui grid">
         <div className="row equal width">
         
-            {props.letters.map(letter => <LetterBox letter={letter} incrementGuesses={props.incrementGuesses}/>) }
+            {letterBoxes(props.letters)}
         </div>
         <div className="row">
             <div className="column">

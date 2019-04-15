@@ -6,22 +6,15 @@ import WordContainer from './WordContainer';
 export default class GameContainer extends Component {
     constructor(props) {
       super(props)
-    
       this.state = {
-         wrongGuesses: 0,
-         correctGuesses: 0,
+         guesses: [],
          letters: [ ],
          definition: "",
          started: false
       }
     }
-    incrementGuesses = (letterBox)=>{
-      //const newGuesses = this.state.guesses + 1
-      // if (newGuesses < 6){
-      //   this.setState({guesses: newGuesses})
-      // }else{ //Game Over
-      //   this.setState({guesses:0, started:false})
-      // }
+    incrementGuess = (letterBox)=>{
+      //This method is going away
       console.log('letterBox', letterBox)
       if(letterBox.letter === letterBox.guess){
         this.setState({correctGuesses: this.state.correctGuesses + 1 },console.log)
@@ -60,8 +53,13 @@ export default class GameContainer extends Component {
         })
         console.log('data', data.list)
         const wordObj = data.list[0] //use the most popular random word
+        const letters = wordObj.word.split("")
+        //put any spaces into the guesses array
+        const guesses = letters.map(letter=>letter===" "? " ": "")
+    
         this.setState({
-          letters: wordObj.word.split(""),
+          letters: letters,
+          guesses: guesses,
           definition: wordObj.definition
         })
       })
@@ -78,13 +76,13 @@ export default class GameContainer extends Component {
       <div className="ui center aligned container">
         
         <Header logout={this.props.logout}/>
-        <Gallows guesses={this.state.wrongGuesses} />
+        <Gallows guesses={this.state.guesses} />
         {this.state.started 
           ? 
           <WordContainer 
           definition={this.state.definition} 
           letters={this.state.letters} 
-          incrementGuesses={this.incrementGuesses}/>
+          handleGuess={this.handleGuess}/>
           : 
           <StartBtn 
           handleStart={this.startGame}/>
