@@ -104,7 +104,7 @@ export default class GameContainer extends Component {
         this.resetGame()
       }
       if(this.gameLost()){
-        alert("You lost!")
+        alert(`You LOST, the word is: ${this.state.letters.join()}`)
         this.resetGame()
       }
     }
