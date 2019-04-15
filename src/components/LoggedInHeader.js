@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Header, Segment } from 'semantic-ui-react'
+import { Header, Segment, Image } from 'semantic-ui-react'
+import FaceImg from "../assets/face_small.png"
 
 class LoggedInHeader extends Component {
 
@@ -13,7 +13,7 @@ class LoggedInHeader extends Component {
                 <Segment clearing>
                 <div>
                     <Header as='h2' floated='left'>
-                        Urban Hangman
+                       <Image src={FaceImg} /> Urban Hangman
                     </Header>
                     </div>
                     <div>
