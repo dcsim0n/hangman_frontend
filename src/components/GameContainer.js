@@ -11,7 +11,8 @@ export default class GameContainer extends Component {
          letters: [ ],
          definition: "",
          started: false,
-         wrongGuesses: 0
+         wrongGuesses: 0,
+         correctGuesses: 0
       }
     }
     gameWon(){
