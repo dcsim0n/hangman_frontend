@@ -12,7 +12,10 @@ export default class Gallows extends Component {
         bg.src = gallowsImg
         console.log("Drawing...")
         console.log(bg)
-        ctx.drawImage(bg,0,0)
+        //fixes small bug of bg image not getting rendered
+        bg.onload = function(){
+          ctx.drawImage(bg,0,0)
+        }
     }
     componentDidUpdate(){
       const ctx = this.gallowsRef.current.getContext('2d')
