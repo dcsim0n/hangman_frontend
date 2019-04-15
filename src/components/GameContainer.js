@@ -10,26 +10,51 @@ export default class GameContainer extends Component {
          guesses: [],
          letters: [ ],
          definition: "",
-         started: false
+         started: false,
+         wrongGuesses: 0
       }
     }
-    incrementGuess = (letterBox)=>{
-      //This method is going away
-      console.log('letterBox', letterBox)
-      if(letterBox.letter === letterBox.guess){
-        this.setState({correctGuesses: this.state.correctGuesses + 1 },console.log)
-
-      }else if (this.state.wrongGuesses < 5){
-        this.setState({wrongGuesses: this.state.wrongGuesses +1 })
-      }else{ //Restart game
+    gameWon(){
+      return this.state.letters.every((letter,index)=>{
+        //test if our guesses equal our word
+        return letter === this.state.guesses[index]
+      })
+    }
+    gameLost(){
+     return this.state.wrongGuesses === 6
+    }
+    resetGame(){
+      this.setState({
+        guesses: [],
+        letters: [ ],
+        definition: "",
+        started: false,
+        wrongGuesses: 0
+     })
+    }
+    handleGuess = (event) => {
+      //get the button that was pressed
+      const guessLetter = event.key
+      
+      console.log("guessing..",guessLetter)
+      let isGuessCorrect = false
+      const newGuesses = this.state.letters.map((letter,index)=>{
+        if(guessLetter === letter){
+          isGuessCorrect = true
+          return letter
+        }else{
+          return this.state.guesses[index]
+        }
+      })
+      if(isGuessCorrect){
+        this.setState({guesses: newGuesses})
+      }else{
         this.setState({
-          started: false,
-          wrongGuesses: 0,
-          correctGuesses: 0,
-          letters: []
+          guesses: newGuesses,
+          wrongGuesses: this.state.wrongGuesses + 1
         })
       }
-      
+
     }
 
     getWord= ()=>{
@@ -76,13 +101,15 @@ export default class GameContainer extends Component {
       <div className="ui center aligned container">
         
         <Header logout={this.props.logout}/>
-        <Gallows guesses={this.state.guesses} />
+        <Gallows guesses={this.state.wrongGuesses} />
         {this.state.started 
-          ? 
+          ? <>
           <WordContainer 
           definition={this.state.definition} 
-          letters={this.state.letters} 
+          letters={this.state.guesses} 
           handleGuess={this.handleGuess}/>
+          <button className="ui button" onClick={this.getWord}>Nope, next word please!</button>
+          </>
           : 
           <StartBtn 
           handleStart={this.startGame}/>

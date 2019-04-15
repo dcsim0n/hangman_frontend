@@ -6,7 +6,8 @@ export default function WordContainer(props) {
     return letters.map((letter,index)=>{
       return <LetterBox key={index} 
       value={letter}
-      index={index} />
+      index={index}
+      handleGuess={props.handleGuess} />
     })
   }
   return (
