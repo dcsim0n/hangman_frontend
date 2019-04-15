@@ -33,7 +33,8 @@ export default class GameContainer extends Component {
         letters: [ ],
         definition: "",
         started: false,
-        wrongGuesses: 0
+        wrongGuesses: 0,
+        correctGuesses: 0 
      })
     }
     handleGuess = (event) => {
@@ -51,7 +52,9 @@ export default class GameContainer extends Component {
         }
       })
       if(isGuessCorrect){
-        this.setState({guesses: newGuesses})
+        this.setState({
+          guesses: newGuesses,
+          correctGuesses: this.state.correctGuesses + 1})
       }else{
         this.setState({
           guesses: newGuesses,
