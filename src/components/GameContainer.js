@@ -115,7 +115,6 @@ export default class GameContainer extends Component {
       
       <div className="ui center aligned container">
         
-        {/* <HangmanHeader logout={this.props.logout}/> */}
         <Gallows guesses={this.state.wrongGuesses} />
         {this.state.started 
           ? <>
