@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Gallows from './Gallows';
 import StartBtn from './StartBtn'
-import Header from './Header'
+// import HangmanHeader from './HangmanHeader'
 import WordContainer from './WordContainer';
 export default class GameContainer extends Component {
     constructor(props) {
@@ -77,7 +77,7 @@ export default class GameContainer extends Component {
       
       <div className="ui center aligned container">
         
-        <Header logout={this.props.logout}/>
+        {/* <HangmanHeader logout={this.props.logout}/> */}
         <Gallows guesses={this.state.wrongGuesses} />
         {this.state.started 
           ? 
