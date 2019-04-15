@@ -40,7 +40,7 @@ class SignUp extends React.Component {
       </div>
       <div className="field">
         <label>Password</label>
-        <input type="text" name="password" placeholder="password"
+        <input type="password" name="password" placeholder="password"
           onChange={(e) => this.setState({ password: e.target.value })} />
       </div>
     

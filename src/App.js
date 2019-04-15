@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import SignUp from './components/SignUp';
 import GameContainer from './components/GameContainer';
 import LogIn from './components/LogIn';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom';
+import HangmanHeader from './components/HangmanHeader'
 
 
 
@@ -40,7 +41,7 @@ class App extends Component {
     return (
       <div className="App ui center aligned container">
       
-      
+      <HangmanHeader logout={this.logout} user={this.state.user}/>
       <Switch>
         < Route path="/signup" render={()=><SignUp setUser={this.setUser}/>  } />
         < Route path="/" render={ () => this.state.user === null ? < LogIn setUser={this.setUser} setError={this.setError} errors={this.state.errors}/> : <GameContainer setUser={this.setUser} logout={this.logout} />}  /> 

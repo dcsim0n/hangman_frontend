@@ -45,7 +45,7 @@ import { withRouter } from 'react-router-dom';
         </div>
         <div className="field">
             {/* <label>Password</label> */}
-            <input type="text" name="password" placeholder="Password"
+            <input type="password" name="password" placeholder="Password"
             onChange={(e) => this.setState({ password: e.target.value })} />
         </div>
         
