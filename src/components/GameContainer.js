@@ -6,37 +6,59 @@ import WordContainer from './WordContainer';
 export default class GameContainer extends Component {
     constructor(props) {
       super(props)
-    
       this.state = {
-         wrongGuesses: 0,
-         correctGuesses: 0,
+         guesses: [],
          letters: [ ],
          definition: "",
-         started: false
+         started: false,
+         wrongGuesses: 0
       }
     }
-    incrementGuesses = (letterBox)=>{
-      //const newGuesses = this.state.guesses + 1
-      // if (newGuesses < 6){
-      //   this.setState({guesses: newGuesses})
-      // }else{ //Game Over
-      //   this.setState({guesses:0, started:false})
-      // }
-      console.log('letterBox', letterBox)
-      if(letterBox.letter === letterBox.guess){
-        this.setState({correctGuesses: this.state.correctGuesses + 1 },console.log)
-
-      }else if (this.state.wrongGuesses < 5){
-        this.setState({wrongGuesses: this.state.wrongGuesses +1 })
-      }else{ //Restart game
+    gameWon(){
+      if(this.state.letters.length > 0){
+        return this.state.guesses.every((letter,index)=>{
+          //does EVERY letter of guesses match the letter of LETTERS
+          return letter === this.state.letters[index]
+        })
+      }else{
+        return false
+      }
+    }
+    gameLost(){
+     return this.state.wrongGuesses === 6
+    }
+    resetGame(){
+      this.setState({
+        guesses: [],
+        letters: [ ],
+        definition: "",
+        started: false,
+        wrongGuesses: 0
+     })
+    }
+    handleGuess = (event) => {
+      //get the button that was pressed
+      const guessLetter = event.key
+      
+      console.log("guessing..",guessLetter)
+      let isGuessCorrect = false
+      const newGuesses = this.state.letters.map((letter,index)=>{
+        if(guessLetter === letter){
+          isGuessCorrect = true
+          return letter
+        }else{
+          return this.state.guesses[index]
+        }
+      })
+      if(isGuessCorrect){
+        this.setState({guesses: newGuesses})
+      }else{
         this.setState({
-          started: false,
-          wrongGuesses: 0,
-          correctGuesses: 0,
-          letters: []
+          guesses: newGuesses,
+          wrongGuesses: this.state.wrongGuesses + 1
         })
       }
-      
+
     }
 
     getWord= ()=>{
@@ -60,8 +82,13 @@ export default class GameContainer extends Component {
         })
         console.log('data', data.list)
         const wordObj = data.list[0] //use the most popular random word
+        const letters = wordObj.word.split("")
+        //put any spaces into the guesses array
+        const guesses = letters.map(letter=>letter===" "? " ": "")
+    
         this.setState({
-          letters: wordObj.word.split(""),
+          letters: letters,
+          guesses: guesses,
           definition: wordObj.definition
         })
       })
@@ -69,6 +96,17 @@ export default class GameContainer extends Component {
     startGame = ()=>{
       this.setState({started: true})
       this.getWord()
+    }
+
+    componentDidUpdate(){
+      if (this.gameWon()){
+        alert("You WON!")
+        this.resetGame()
+      }
+      if(this.gameLost()){
+        alert("You lost!")
+        this.resetGame()
+      }
     }
     
   render() {
@@ -80,11 +118,13 @@ export default class GameContainer extends Component {
         {/* <HangmanHeader logout={this.props.logout}/> */}
         <Gallows guesses={this.state.wrongGuesses} />
         {this.state.started 
-          ? 
+          ? <>
           <WordContainer 
           definition={this.state.definition} 
-          letters={this.state.letters} 
-          incrementGuesses={this.incrementGuesses}/>
+          letters={this.state.guesses} 
+          handleGuess={this.handleGuess}/>
+          <button className="ui button" onClick={this.getWord}>Nope, next word please!</button>
+          </>
           : 
           <StartBtn 
           handleStart={this.startGame}/>
