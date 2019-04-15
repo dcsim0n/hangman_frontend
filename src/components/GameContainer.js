@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import Gallows from './Gallows';
 import StartBtn from './StartBtn'
 import WordContainer from './WordContainer';
+import ScoreBox from './ScoreBox';
+
+
 export default class GameContainer extends Component {
     constructor(props) {
       super(props)
@@ -12,7 +15,8 @@ export default class GameContainer extends Component {
          started: false,
          wrongGuesses: 0,
          correctGuesses: 0,
-         score: 0
+         score: 0,
+         allTimeScore: 0
       }
     }
     gameWon(){
@@ -36,7 +40,8 @@ export default class GameContainer extends Component {
         started: false,
         wrongGuesses: 0,
         correctGuesses: 0,
-        score: 0 
+        score: 0,
+        allTimeScore: 0 
      })
     }
     handleGuess = (event) => {
@@ -138,8 +143,15 @@ export default class GameContainer extends Component {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(newGame)
-      })
-    }
+      }).then(res => {
+        if(res.ok)
+        return res.json()})
+        .then(data => {
+          console.log(data)
+          this.setState({allTimeScore: data.total_score})
+        }
+      
+        )}
 
   render() {
     return (
@@ -148,6 +160,7 @@ export default class GameContainer extends Component {
       <div className="ui center aligned container">
         
         <Gallows guesses={this.state.wrongGuesses} />
+        <ScoreBox score={this.state.score} allTimeScore={this.state.allTimeScore}/>
         {this.state.started 
           ? <>
           <WordContainer 
@@ -160,9 +173,7 @@ export default class GameContainer extends Component {
           <StartBtn 
           handleStart={this.startGame}/>
         }
-        <div>
-          <h3>Score:{this.state.score}</h3>       
-        </div>     
+            
       </div>
     )
   }
