@@ -15,10 +15,14 @@ export default class GameContainer extends Component {
       }
     }
     gameWon(){
-      return this.state.letters.every((letter,index)=>{
-        //test if our guesses equal our word
-        return letter === this.state.guesses[index]
-      })
+      if(this.state.letters.length > 0){
+        return this.state.guesses.every((letter,index)=>{
+          //does EVERY letter of guesses match the letter of LETTERS
+          return letter === this.state.letters[index]
+        })
+      }else{
+        return false
+      }
     }
     gameLost(){
      return this.state.wrongGuesses === 6
@@ -92,6 +96,17 @@ export default class GameContainer extends Component {
     startGame = ()=>{
       this.setState({started: true})
       this.getWord()
+    }
+
+    componentDidUpdate(){
+      if (this.gameWon()){
+        alert("You WON!")
+        this.resetGame()
+      }
+      if(this.gameLost()){
+        alert("You lost!")
+        this.resetGame()
+      }
     }
     
   render() {
