@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Gallows from './Gallows';
 import StartBtn from './StartBtn'
-// import HangmanHeader from './HangmanHeader'
 import WordContainer from './WordContainer';
 export default class GameContainer extends Component {
     constructor(props) {
@@ -12,7 +11,8 @@ export default class GameContainer extends Component {
          definition: "",
          started: false,
          wrongGuesses: 0,
-         correctGuesses: 0
+         correctGuesses: 0,
+         score: 0
       }
     }
     gameWon(){
@@ -35,13 +35,14 @@ export default class GameContainer extends Component {
         definition: "",
         started: false,
         wrongGuesses: 0,
-        correctGuesses: 0 
+        correctGuesses: 0,
+        score: 0 
      })
     }
     handleGuess = (event) => {
       //get the button that was pressed
       const guessLetter = event.key
-      
+
       console.log("guessing..",guessLetter)
       let isGuessCorrect = false
       const newGuesses = this.state.letters.map((letter,index)=>{
@@ -55,15 +56,19 @@ export default class GameContainer extends Component {
       if(isGuessCorrect){
         this.setState({
           guesses: newGuesses,
-          correctGuesses: this.state.correctGuesses + 1})
+          correctGuesses: this.state.correctGuesses + 1,
+          score: this.state.score + 5
+        })
       }else{
         this.setState({
           guesses: newGuesses,
-          wrongGuesses: this.state.wrongGuesses + 1
+          wrongGuesses: this.state.wrongGuesses + 1,
+          score: this.state.score - 5
         })
       }
 
     }
+
 
     getWord= ()=>{
       fetch("http://api.urbandictionary.com/v0/random")
@@ -105,14 +110,37 @@ export default class GameContainer extends Component {
     componentDidUpdate(){
       if (this.gameWon()){
         alert("You WON!")
+         this.setGame()
         this.resetGame()
       }
       if(this.gameLost()){
         alert(`You LOST, the word is: ${this.state.letters.join("")}`)
+         this.setGame()
         this.resetGame()
       }
     }
-    
+   
+
+
+    setGame = (game) => {
+
+      
+      let newGame = {
+        "token": localStorage.getItem("token"),
+        "game": {"score": this.state.score, 
+                  "word": this.state.letters.join(""),
+                  "definition": this.state.definition}
+      }
+      
+      fetch("http://localhost:3000/games", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newGame)
+      })
+    }
+
   render() {
     return (
       
@@ -132,8 +160,9 @@ export default class GameContainer extends Component {
           <StartBtn 
           handleStart={this.startGame}/>
         }
-        
-        
+        <div>
+          <h3>Score:{this.state.score}</h3>       
+        </div>     
       </div>
     )
   }
