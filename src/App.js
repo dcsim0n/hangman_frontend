@@ -44,7 +44,7 @@ class App extends Component {
       <HangmanHeader logout={this.logout} user={this.state.user}/>
       <Switch>
         < Route path="/signup" render={()=><SignUp setUser={this.setUser}/>  } />
-        < Route path="/" render={ () => this.state.user === null ? < LogIn setUser={this.setUser} setError={this.setError} errors={this.state.errors}/> : <GameContainer setUser={this.setUser} logout={this.logout} />}  /> 
+        < Route path="/" render={ () => this.state.user === null ? < LogIn setUser={this.setUser} setError={this.setError} errors={this.state.errors}/> : <GameContainer setUser={this.setUser} logout={this.logout}/>}  /> 
       </Switch>
       </div>
     );
