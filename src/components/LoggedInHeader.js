@@ -11,12 +11,16 @@ class LoggedInHeader extends Component {
             <div>
             
                 <Segment clearing>
+                <div>
                     <Header as='h2' floated='left'>
                         Urban Hangman
                     </Header>
-                    <Header as='h2' floated='center'>
+                    </div>
+                    <div>
+                    <Header as='h2' className="welcome" floated='center'>
                         Welcome {this.props.user}
                     </Header>
+                    </div>
                     <Header as='h2' floated='right'>
                         <a href="/" class="ui blue" className="item" onClick={this.props.logout}>Logout </a> 
                     </Header>
