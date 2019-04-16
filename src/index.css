@@ -1,0 +1,32 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Cute Font', cursive;
+    font-size: 24px;
+    
+}
+canvas {
+    background-color: white;
+    padding: 5px;
+}
+
+.modal{
+    color: black;
+    font-size: 24px;
+}
+#welcome {
+    font-family: 'Cute Font', cursive;
+    font-size: 48px;
+}
+
+
+
+.login-form .column {
+    margin-top: 3em;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#score-box {
+    font-size: 1.5em;
+}

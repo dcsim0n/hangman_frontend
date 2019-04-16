@@ -19,7 +19,7 @@ class HangmanHeader extends Component {
 
     render () {
         return(
-            <div>
+            <div id="header">
                 {this.displayLogOut()}         
             </div>
             
