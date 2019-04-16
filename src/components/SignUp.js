@@ -40,8 +40,8 @@ class SignUp extends React.Component {
   <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
       
-      <Header as='h2' color='teal' textAlign='center'>
-        <Image src={FaceImg} />Sign Up!
+      <Header as='h2' color='red' textAlign='center'>
+        <Image src={FaceImg} />Create New Account
       </Header>
       {/* <p><p> {this.props.errors ? this.props.errors.error : null} </p></p> */}
       <Form size='large' onSubmit={this.saveUser}>
@@ -56,7 +56,7 @@ class SignUp extends React.Component {
             name="password"
             onChange={(e) => this.setState({ password: e.target.value })} />
 
-          <Button color='teal' fluid size='large'>
+          <Button color='red' fluid size='large'>
             Submit
           </Button>
         </Segment>

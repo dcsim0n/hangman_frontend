@@ -46,7 +46,7 @@ import FaceImg from '../assets/face_small.png'
      <div className='login-form'>
      <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
        <Grid.Column style={{ maxWidth: 450 }}>
-         <Header as='h2' color='teal' textAlign='center'>
+         <Header as='h2' color='red' textAlign='center'>
          <Image src={FaceImg} />
             Log-in to your account
          </Header>
@@ -63,7 +63,7 @@ import FaceImg from '../assets/face_small.png'
                name="password"
                onChange={(e) => this.setState({ password: e.target.value })} />
  
-             <Button color='teal' fluid size='large'>
+             <Button color='red' fluid size='large'>
                Login
              </Button>
            </Segment>

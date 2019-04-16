@@ -3,6 +3,7 @@ import Gallows from './Gallows';
 import StartBtn from './StartBtn'
 import WordContainer from './WordContainer';
 import ScoreBox from './ScoreBox';
+import { Grid } from 'semantic-ui-react'
 
 
 export default class GameContainer extends Component {
@@ -156,25 +157,35 @@ export default class GameContainer extends Component {
   render() {
     return (
       
-      
-      <div className="ui center aligned container">
+      <div>
+        <Grid celled>
+          <Grid.Row>
+            <Grid.Column width={13}>
+              <Gallows guesses={this.state.wrongGuesses} />
+            </Grid.Column>
+            <Grid.Column  width={3} verticalAlign='middle'>
+              <ScoreBox score={this.state.score} allTimeScore={this.state.allTimeScore}/>
+            </Grid.Column>
+          </Grid.Row>
         
-        <Gallows guesses={this.state.wrongGuesses} />
-        <ScoreBox score={this.state.score} allTimeScore={this.state.allTimeScore}/>
-        {this.state.started 
-          ? <>
-          <WordContainer 
-          definition={this.state.definition} 
-          letters={this.state.guesses} 
-          handleGuess={this.handleGuess}/>
+          <Grid.Row >
+            <Grid.Column width={16}>
+            {this.state.started 
+              ? <>
+            <WordContainer 
+            definition={this.state.definition} 
+            letters={this.state.guesses} 
+            handleGuess={this.handleGuess}/>
           <button className="ui button" onClick={this.getWord}>Nope, next word please!</button>
           </>
           : 
           <StartBtn 
           handleStart={this.startGame}/>
         }
-            
-      </div>
+          </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </div>      
     )
   }
 }
