@@ -118,36 +118,46 @@ export default class GameContainer extends Component {
       this.getWord()
     }
 
-    componentDidMount(){
-      
-    }
+  componentDidMount(){
+    const token = localStorage.getItem("token")
+    fetch("http://localhost:3000/score",{
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({token: token})
+    })
+    .then(res=>{
+      if(res.ok){
+        return res.json()
+      }
+    })
+    .then(data=>this.setState({allTimeScore: data.total_score}))
+  }
    
 
 
-    setGame = () => {
-      const newGame = {
-        "token": localStorage.getItem("token"),
-        "game": {"score": this.state.score, 
-                  "word": this.state.letters.join(""),
-                  "definition": this.state.definition}
-      }
-      
-      fetch("http://localhost:3000/games", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(newGame)
-      })
-      .then(res => {
-        if(res.ok)
-        return res.json()})
-        .then(data => {
-          console.log(data)
-          this.setState({allTimeScore: data.total_score})
-        }
-      
-      )}
+  setGame = () => {
+    const newGame = {
+      "token": localStorage.getItem("token"),
+      "game": {"score": this.state.score, 
+                "word": this.state.letters.join(""),
+                "definition": this.state.definition}
+    }
+    
+    fetch("http://localhost:3000/games", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newGame)
+    })
+    .then(res => {
+      if(res.ok)
+      return res.json()})
+      .then(data => {
+        console.log(data)
+        this.setState({allTimeScore: data.total_score})
+    })
+  }
 
   render() {
     return (

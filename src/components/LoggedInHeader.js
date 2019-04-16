@@ -20,7 +20,7 @@ class LoggedInHeader extends Component {
                         </Header.Content>
                     </Header>
 
-                    <Header as='h2' floated='center'name="welcome" id="welcome">
+                    <Header as='h2' name="welcome" id="welcome">
                         <p>Welcome {this.props.user} </p>
                     </Header>
 
