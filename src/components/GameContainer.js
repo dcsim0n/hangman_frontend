@@ -118,7 +118,7 @@ export default class GameContainer extends Component {
       this.getWord()
     }
 
-    componentDidUpdate(){
+    componentDidMount(){
       
     }
    
