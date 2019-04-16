@@ -12,7 +12,10 @@ canvas {
 
 .modal{
     color: black;
-    font-size: 24px;
+}
+.modal .description{
+    font-size: 1.8em;
+    
 }
 #welcome {
     font-family: 'Cute Font', cursive;
