@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Header, Segment, Image } from 'semantic-ui-react'
+import { Header, Image, Segment } from 'semantic-ui-react'
 import FaceImg from "../assets/face_small.png"
+import Logo from "../assets/logo.png"
 
 class LoggedInHeader extends Component {
 
@@ -10,19 +11,23 @@ class LoggedInHeader extends Component {
         return(
             <div>
             
-               
-                    <Header as='h2' align='left'>
+               <Segment clearing>
+                    <Header as='h2' floated='left'>
                        <Image src={FaceImg} /> 
                         <Header.Content>
-                            Urban Hangman
-                            <Header.Subheader> Welcome {this.props.user}</Header.Subheader>
+                            <Image src={Logo} size='medium'/>
+                            {/* <Header.Subheader> Welcome {this.props.user}</Header.Subheader> */}
                         </Header.Content>
                     </Header>
 
-                    <Header as='h3' align='right'>
-                        <a href="/" class="ui blue" className="item" onClick={this.props.logout}>Logout </a> 
+                    <Header as='h2' floated='center'name="welcome" id="welcome">
+                        <p>Welcome {this.props.user} </p>
                     </Header>
-                        
+
+                    <Header as='h3' floated='right'>
+                        <a href="/" style={{ color: '#f00' }} className="item" onClick={this.props.logout}>Logout </a> 
+                    </Header>
+                </Segment>    
             </div>
             
         )

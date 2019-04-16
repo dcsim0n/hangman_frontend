@@ -43,6 +43,6 @@ body > .grid {
   max-width: 450px;
 }
 
-.ui-center-floated-header-welcome{
-  text-align: center;
-}
+ .welcome-ui-center-floated-header{
+  font-family: 'Cute Font', cursive;
+} 
