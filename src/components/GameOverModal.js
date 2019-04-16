@@ -6,11 +6,11 @@ export default function GameOverModal(props) {
     
     return (
       <Modal open={props.modalOpen} >
-        <Modal.Header>Game Over</Modal.Header>
+        <Modal.Header>{props.won? "CONGRATULATIONS, YOU WON!" : "YOU LOST!"}</Modal.Header>
             <Modal.Content image>
                 <Image size='medium' src={FaceImg} />
                 <Modal.Description>
-                    <Header>{props.won? "YOU WON! Your Score: " + props.score : "YOU LOST!"}</Header>
+                    <Header>Your Score: {props.score}</Header>
                     <p>The Word: {props.word}</p>
                     <p>What it means: {props.definition}</p>
                     <p>Click a button to start a new game</p>

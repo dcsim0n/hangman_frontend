@@ -37,6 +37,8 @@ export default class GameContainer extends Component {
       return this.gameWon() || this.gameLost()
     }
     resetGame = ()=>{
+      this.setGame()
+      
       this.setState({
         guesses: [],
         letters: [ ],
@@ -44,8 +46,7 @@ export default class GameContainer extends Component {
         started: false,
         wrongGuesses: 0,
         correctGuesses: 0,
-        score: 0,
-        allTimeScore: 0 
+        score: 0
      })
     }
     handleGuess = (event) => {
@@ -100,10 +101,10 @@ export default class GameContainer extends Component {
         })
         console.log('data', data.list)
         const wordObj = data.list[0] //use the most popular random word
-        const letters = wordObj.word.split("")
+        const letters = wordObj.word.toLowerCase().split("")
         //put any spaces into the guesses array
         const guesses = letters.map(letter=>letter===" "? " ": "")
-    
+        
         this.setState({
           letters: letters,
           guesses: guesses,
@@ -117,12 +118,7 @@ export default class GameContainer extends Component {
     }
 
     componentDidUpdate(){
-      if (this.gameWon()){
-        this.setGame()
-      }
-      if(this.gameLost()){
-        this.setGame()
-      }
+      
     }
    
 
@@ -147,7 +143,7 @@ export default class GameContainer extends Component {
         return res.json()})
         .then(data => {
           console.log(data)
-          //this.setState({allTimeScore: data.total_score})
+          this.setState({allTimeScore: data.total_score})
         }
       
       )}
@@ -177,7 +173,7 @@ export default class GameContainer extends Component {
         handleClose={this.resetGame}
         won={this.gameWon()} 
         word={this.state.letters.join("")}
-        score={this.state.allTimeScore}
+        score={this.state.allTimeScore + this.state.score}
         definition={this.state.definition}/>
       </div>
     )
