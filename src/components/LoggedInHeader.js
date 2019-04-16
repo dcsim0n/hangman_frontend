@@ -10,21 +10,18 @@ class LoggedInHeader extends Component {
         return(
             <div>
             
-                <Segment clearing>
-                <div>
-                    <Header as='h2' floated='left'>
-                       <Image src={FaceImg} /> Urban Hangman
+               
+                    <Header as='h2' align='left'>
+                       <Image src={FaceImg} /> 
+                        <Header.Content>
+                            Urban Hangman
+                            <Header.Subheader> Welcome {this.props.user}</Header.Subheader>
+                        </Header.Content>
                     </Header>
-                    </div>
-                    <div>
-                    <Header as='h2' className="welcome" floated='center'>
-                        Welcome {this.props.user}
-                    </Header>
-                    </div>
-                    <Header as='h2' floated='right'>
+
+                    <Header as='h3' align='right'>
                         <a href="/" class="ui blue" className="item" onClick={this.props.logout}>Logout </a> 
                     </Header>
-                </Segment>                
                         
             </div>
             
