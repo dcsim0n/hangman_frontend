@@ -3,6 +3,7 @@ import Gallows from './Gallows';
 import StartBtn from './StartBtn'
 import WordContainer from './WordContainer';
 import ScoreBox from './ScoreBox';
+import GameOverModal from './GameOverModal';
 
 
 export default class GameContainer extends Component {
@@ -16,7 +17,7 @@ export default class GameContainer extends Component {
          wrongGuesses: 0,
          correctGuesses: 0,
          score: 0,
-         allTimeScore: 0
+         allTimeScore: 0,
       }
     }
     gameWon(){
@@ -32,7 +33,10 @@ export default class GameContainer extends Component {
     gameLost(){
      return this.state.wrongGuesses === 6
     }
-    resetGame(){
+    gameOver(){
+      return this.gameWon() || this.gameLost()
+    }
+    resetGame = ()=>{
       this.setState({
         guesses: [],
         letters: [ ],
@@ -114,23 +118,17 @@ export default class GameContainer extends Component {
 
     componentDidUpdate(){
       if (this.gameWon()){
-        alert("You WON!")
-         this.setGame()
-        this.resetGame()
+        this.setGame()
       }
       if(this.gameLost()){
-        alert(`You LOST, the word is: ${this.state.letters.join("")}`)
-         this.setGame()
-        this.resetGame()
+        this.setGame()
       }
     }
    
 
 
-    setGame = (game) => {
-
-      
-      let newGame = {
+    setGame = () => {
+      const newGame = {
         "token": localStorage.getItem("token"),
         "game": {"score": this.state.score, 
                   "word": this.state.letters.join(""),
@@ -143,15 +141,16 @@ export default class GameContainer extends Component {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(newGame)
-      }).then(res => {
+      })
+      .then(res => {
         if(res.ok)
         return res.json()})
         .then(data => {
           console.log(data)
-          this.setState({allTimeScore: data.total_score})
+          //this.setState({allTimeScore: data.total_score})
         }
       
-        )}
+      )}
 
   render() {
     return (
@@ -173,7 +172,13 @@ export default class GameContainer extends Component {
           <StartBtn 
           handleStart={this.startGame}/>
         }
-            
+        <GameOverModal 
+        modalOpen={this.gameOver()}
+        handleClose={this.resetGame}
+        won={this.gameWon()} 
+        word={this.state.letters.join("")}
+        score={this.state.allTimeScore}
+        definition={this.state.definition}/>
       </div>
     )
   }
