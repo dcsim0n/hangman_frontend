@@ -50,7 +50,7 @@ import FaceImg from '../assets/face_small.png'
          <Image src={FaceImg} />
             Log-in to your account
          </Header>
-         <p><p> {this.props.errors ? this.props.errors.error : null} </p></p>
+         <p> {this.props.errors ? this.props.errors.error : null} </p>
          <Form size='large' onSubmit={this.handleSubmit}>
            <Segment stacked>
              <Form.Input fluid icon='user' iconPosition='left' className="name" placeholder='Username' onChange={(e) => this.setState({ name: e.target.value })}/>
