@@ -4,6 +4,7 @@ import StartBtn from './StartBtn'
 import WordContainer from './WordContainer';
 import ScoreBox from './ScoreBox';
 import { Grid } from 'semantic-ui-react'
+import GameOverModal from './GameOverModal';
 
 
 export default class GameContainer extends Component {
@@ -17,7 +18,7 @@ export default class GameContainer extends Component {
          wrongGuesses: 0,
          correctGuesses: 0,
          score: 0,
-         allTimeScore: 0
+         allTimeScore: 0,
       }
     }
     gameWon(){
@@ -33,7 +34,12 @@ export default class GameContainer extends Component {
     gameLost(){
      return this.state.wrongGuesses === 6
     }
-    resetGame(){
+    gameOver(){
+      return this.gameWon() || this.gameLost()
+    }
+    resetGame = ()=>{
+      this.setGame()
+      
       this.setState({
         guesses: [],
         letters: [ ],
@@ -41,8 +47,7 @@ export default class GameContainer extends Component {
         started: false,
         wrongGuesses: 0,
         correctGuesses: 0,
-        score: 0,
-        allTimeScore: 0 
+        score: 0
      })
     }
     handleGuess = (event) => {
@@ -97,10 +102,10 @@ export default class GameContainer extends Component {
         })
         console.log('data', data.list)
         const wordObj = data.list[0] //use the most popular random word
-        const letters = wordObj.word.split("")
+        const letters = wordObj.word.toLowerCase().split("")
         //put any spaces into the guesses array
         const guesses = letters.map(letter=>letter===" "? " ": "")
-    
+        
         this.setState({
           letters: letters,
           guesses: guesses,
@@ -114,24 +119,13 @@ export default class GameContainer extends Component {
     }
 
     componentDidUpdate(){
-      if (this.gameWon()){
-        alert("You WON!")
-         this.setGame()
-        this.resetGame()
-      }
-      if(this.gameLost()){
-        alert(`You LOST, the word is: ${this.state.letters.join("")}`)
-         this.setGame()
-        this.resetGame()
-      }
+      
     }
    
 
 
-    setGame = (game) => {
-
-      
-      let newGame = {
+    setGame = () => {
+      const newGame = {
         "token": localStorage.getItem("token"),
         "game": {"score": this.state.score, 
                   "word": this.state.letters.join(""),
@@ -144,7 +138,8 @@ export default class GameContainer extends Component {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(newGame)
-      }).then(res => {
+      })
+      .then(res => {
         if(res.ok)
         return res.json()})
         .then(data => {
@@ -152,7 +147,7 @@ export default class GameContainer extends Component {
           this.setState({allTimeScore: data.total_score})
         }
       
-        )}
+      )}
 
   render() {
     return (
@@ -185,7 +180,15 @@ export default class GameContainer extends Component {
           </Grid.Column>
           </Grid.Row>
         </Grid>
-      </div>      
+          
+        <GameOverModal 
+        modalOpen={this.gameOver()}
+        handleClose={this.resetGame}
+        won={this.gameWon()} 
+        word={this.state.letters.join("")}
+        score={this.state.allTimeScore + this.state.score}
+        definition={this.state.definition}/>
+      </div>
     )
   }
 }
