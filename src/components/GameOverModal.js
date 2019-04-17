@@ -6,7 +6,7 @@ import './SpinAnimation.css'
 export default function GameOverModal(props) {
     
     return (
-      <Modal open={props.modalOpen} >
+      <Modal open={props.modalOpen}>
         <Modal.Header>{props.won? "CONGRATULATIONS, YOU WON!" : "YOU LOST!"}</Modal.Header>
             <Modal.Content image>
                 <Image src={FaceImg} alt="spinning face" className="spinning-logo"/>
