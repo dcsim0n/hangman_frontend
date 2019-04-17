@@ -20,6 +20,7 @@ export default class GameContainer extends Component {
          correctGuesses: 0,
          score: 0,
          allTimeScore: 0,
+         leaders: []
       }
     }
     gameWon(){
@@ -41,6 +42,7 @@ export default class GameContainer extends Component {
     resetGame = ()=>{
       this.setGame()
       
+      
       this.setState({
         guesses: [],
         letters: [ ],
@@ -49,8 +51,18 @@ export default class GameContainer extends Component {
         wrongGuesses: 0,
         correctGuesses: 0,
         score: 0
-     })
+       })
     }
+
+    updateLeaders = (e) => {
+      fetch('http://localhost:3000/leaders')
+      .then(res => res.json())
+      .then(data => {
+          this.setState({leaders: data})
+      })
+    }
+
+
     handleGuess = (event) => {
       //get the button that was pressed
       const guessLetter = event.key
@@ -132,7 +144,9 @@ export default class GameContainer extends Component {
       }
     })
     .then(data=>this.setState({allTimeScore: data.total_score}))
+    this.updateLeaders()
   }
+
    
 
 
@@ -156,6 +170,7 @@ export default class GameContainer extends Component {
       return res.json()})
       .then(data => {
         console.log(data)
+        this.updateLeaders()
         this.setState({allTimeScore: data.total_score})
     })
   }
@@ -167,7 +182,7 @@ export default class GameContainer extends Component {
         <Grid celled>
           <Grid.Row>
             <Grid.Column width={3} verticalAlign='left'>
-              <LeaderBoard />
+              <LeaderBoard leaders={this.state.leaders}/>
             </Grid.Column>
             <Grid.Column width={10}>
               <Gallows guesses={this.state.wrongGuesses} />
