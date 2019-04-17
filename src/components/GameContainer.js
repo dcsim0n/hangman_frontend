@@ -5,6 +5,7 @@ import WordContainer from './WordContainer';
 import ScoreBox from './ScoreBox';
 import { Grid } from 'semantic-ui-react'
 import GameOverModal from './GameOverModal';
+import LeaderBoard from './LeaderBoard'
 
 
 export default class GameContainer extends Component {
@@ -165,7 +166,10 @@ export default class GameContainer extends Component {
       <div>
         <Grid celled>
           <Grid.Row>
-            <Grid.Column width={13}>
+            <Grid.Column width={3} verticalAlign='left'>
+              <LeaderBoard />
+            </Grid.Column>
+            <Grid.Column width={10}>
               <Gallows guesses={this.state.wrongGuesses} />
             </Grid.Column>
             <Grid.Column  width={3} verticalAlign='middle'>
