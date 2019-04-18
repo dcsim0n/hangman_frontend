@@ -114,7 +114,9 @@ export default class GameContainer extends Component {
           return 0
         })
         console.log('data', data.list)
-        const wordObj = data.list[0] //use the most popular random word
+        //use the most popular random word
+        //but it has to be 16 characters long or less
+        const wordObj = data.list.find(item=>item.word.length < 17) 
         const letters = wordObj.word.toLowerCase().split("")
         //put any spaces into the guesses array
         const guesses = letters.map(letter=>letter===" "? " ": "")
