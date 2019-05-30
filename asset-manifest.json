@@ -1,0 +1,18 @@
+{
+  "main.css": "/hangman_frontend/static/css/main.d3146144.chunk.css",
+  "main.js": "/hangman_frontend/static/js/main.49d892e4.chunk.js",
+  "main.js.map": "/hangman_frontend/static/js/main.49d892e4.chunk.js.map",
+  "runtime~main.js": "/hangman_frontend/static/js/runtime~main.135e9468.js",
+  "runtime~main.js.map": "/hangman_frontend/static/js/runtime~main.135e9468.js.map",
+  "static/css/2.b5289a83.chunk.css": "/hangman_frontend/static/css/2.b5289a83.chunk.css",
+  "static/js/2.cca4bb86.chunk.js": "/hangman_frontend/static/js/2.cca4bb86.chunk.js",
+  "static/js/2.cca4bb86.chunk.js.map": "/hangman_frontend/static/js/2.cca4bb86.chunk.js.map",
+  "index.html": "/hangman_frontend/index.html",
+  "precache-manifest.ae24891aab679c57672f03d03e95322f.js": "/hangman_frontend/precache-manifest.ae24891aab679c57672f03d03e95322f.js",
+  "service-worker.js": "/hangman_frontend/service-worker.js",
+  "static/css/2.b5289a83.chunk.css.map": "/hangman_frontend/static/css/2.b5289a83.chunk.css.map",
+  "static/css/main.d3146144.chunk.css.map": "/hangman_frontend/static/css/main.d3146144.chunk.css.map",
+  "static/media/semantic.min.css": "/hangman_frontend/static/media/outline-icons.ef60a4f6.woff",
+  "static/media/face.png": "/hangman_frontend/static/media/face.b5ace4ba.png",
+  "static/media/logo.png": "/hangman_frontend/static/media/logo.18074838.png"
+}
