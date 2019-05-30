@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "5030cad39700e09b3d55",
+    "revision": "9899904379357b15df82",
     "url": "/hangman_frontend/static/css/main.d3146144.chunk.css"
   },
   {
-    "revision": "5030cad39700e09b3d55",
-    "url": "/hangman_frontend/static/js/main.49d892e4.chunk.js"
+    "revision": "9899904379357b15df82",
+    "url": "/hangman_frontend/static/js/main.9baf25ff.chunk.js"
   },
   {
     "revision": "c528b6fa50ab2ac04c91",
@@ -32,12 +32,12 @@ self.__precacheManifest = [
     "url": "/hangman_frontend/static/media/flags.9c74e172.png"
   },
   {
-    "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
-    "url": "/hangman_frontend/static/media/outline-icons.ef60a4f6.woff"
-  },
-  {
     "revision": "cd6c777f1945164224dee082abaea03a",
     "url": "/hangman_frontend/static/media/outline-icons.cd6c777f.woff2"
+  },
+  {
+    "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
+    "url": "/hangman_frontend/static/media/outline-icons.ef60a4f6.woff"
   },
   {
     "revision": "701ae6abd4719e9c2ada3535a497b341",
@@ -64,12 +64,12 @@ self.__precacheManifest = [
     "url": "/hangman_frontend/static/media/brand-icons.a046592b.woff"
   },
   {
-    "revision": "13db00b7a34fee4d819ab7f9838cc428",
-    "url": "/hangman_frontend/static/media/brand-icons.13db00b7.eot"
-  },
-  {
     "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
     "url": "/hangman_frontend/static/media/icons.b87b9ba5.ttf"
+  },
+  {
+    "revision": "13db00b7a34fee4d819ab7f9838cc428",
+    "url": "/hangman_frontend/static/media/brand-icons.13db00b7.eot"
   },
   {
     "revision": "8e3c7f5520f5ae906c6cf6d7f3ddcd19",
@@ -92,7 +92,7 @@ self.__precacheManifest = [
     "url": "/hangman_frontend/static/media/brand-icons.a1a749e8.svg"
   },
   {
-    "revision": "2c5f4ee461b777f40a3308a55a8f2242",
+    "revision": "66c06238755ca7111b5efb4ea982078c",
     "url": "/hangman_frontend/index.html"
   }
 ];
