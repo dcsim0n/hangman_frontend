@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, List } from 'semantic-ui-react'
+import { List } from 'semantic-ui-react'
 
 export default class LeaderBoard extends Component {
 
