@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import FaceImg from '../assets/face_small.png'
-
+import {api_base} from '../apiUri'
 
 
 
@@ -19,7 +19,7 @@ import FaceImg from '../assets/face_small.png'
     
     handleSubmit=(event) => {
         event.preventDefault()
-        fetch("http://localhost:3000/login", {
+        fetch(api_base + "/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react'
 import FaceImg from '../assets/face_small.png'
-
+import {api_base} from '../apiUri'
 
 
 class SignUp extends React.Component {
@@ -20,7 +20,7 @@ class SignUp extends React.Component {
 
   saveUser = (event) => {
     event.preventDefault()
-    fetch("http://localhost:3000/users", {
+    fetch(api_base + "/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
