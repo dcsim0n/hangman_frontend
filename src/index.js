@@ -5,10 +5,11 @@ import './index.css'
 
 import App from './App';
 import { HashRouter } from 'react-router-dom';
+import {web_base} from './apiUri'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <HashRouter basename={""}>
+  <HashRouter basename={web_base}>
     <App />
   </HashRouter>,
   document.getElementById('root'));
