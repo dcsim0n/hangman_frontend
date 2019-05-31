@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import FaceImg from '../assets/face_small.png'
 import {api_base} from '../apiUri'
@@ -69,7 +69,7 @@ import {api_base} from '../apiUri'
            </Segment>
          </Form>
          <Message>
-           New to us? <a href='/signup'>Sign Up</a>
+           New to us? <Link to={"/signup"}>Sign Up</Link>
          </Message>
        </Grid.Column>
      </Grid>
