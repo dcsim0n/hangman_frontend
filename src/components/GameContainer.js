@@ -6,7 +6,7 @@ import ScoreBox from './ScoreBox';
 import { Grid } from 'semantic-ui-react'
 import GameOverModal from './GameOverModal';
 import LeaderBoard from './LeaderBoard'
-import {api_base} from '../apiUri.js'
+import {api_base,dictionary_url} from '../apiUri.js'
 
 export default class GameContainer extends Component {
     constructor(props) {
@@ -95,7 +95,7 @@ export default class GameContainer extends Component {
 
 
     getWord= ()=>{
-      fetch("http://api.urbandictionary.com/v0/random")
+      fetch(dictionary_url)
       .then(resp =>{
         if(!resp.ok){
           alert("Problem getting new word")
