@@ -1,23 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "9899904379357b15df82",
+    "revision": "dc5d9aab0ed0ba6b7d96",
     "url": "/hangman_frontend/static/css/main.d3146144.chunk.css"
   },
   {
-    "revision": "9899904379357b15df82",
-    "url": "/hangman_frontend/static/js/main.9baf25ff.chunk.js"
+    "revision": "dc5d9aab0ed0ba6b7d96",
+    "url": "/hangman_frontend/static/js/main.18d62dc0.chunk.js"
   },
   {
     "revision": "c528b6fa50ab2ac04c91",
     "url": "/hangman_frontend/static/js/runtime~main.135e9468.js"
   },
   {
-    "revision": "a162aea3e244cba2cdcf",
+    "revision": "5fa6a2374ee6d6ae70be",
     "url": "/hangman_frontend/static/css/2.b5289a83.chunk.css"
   },
   {
-    "revision": "a162aea3e244cba2cdcf",
-    "url": "/hangman_frontend/static/js/2.cca4bb86.chunk.js"
+    "revision": "5fa6a2374ee6d6ae70be",
+    "url": "/hangman_frontend/static/js/2.26b6e28f.chunk.js"
   },
   {
     "revision": "18074838c945b12255cccceb637085e7",
@@ -40,48 +40,48 @@ self.__precacheManifest = [
     "url": "/hangman_frontend/static/media/outline-icons.ef60a4f6.woff"
   },
   {
-    "revision": "701ae6abd4719e9c2ada3535a497b341",
-    "url": "/hangman_frontend/static/media/outline-icons.701ae6ab.eot"
-  },
-  {
     "revision": "ad97afd3337e8cda302d10ff5a4026b8",
     "url": "/hangman_frontend/static/media/outline-icons.ad97afd3.ttf"
   },
   {
-    "revision": "0ab54153eeeca0ce03978cc463b257f7",
-    "url": "/hangman_frontend/static/media/icons.0ab54153.woff2"
-  },
-  {
-    "revision": "faff92145777a3cbaf8e7367b4807987",
-    "url": "/hangman_frontend/static/media/icons.faff9214.woff"
+    "revision": "701ae6abd4719e9c2ada3535a497b341",
+    "url": "/hangman_frontend/static/media/outline-icons.701ae6ab.eot"
   },
   {
     "revision": "e8c322de9658cbeb8a774b6624167c2c",
     "url": "/hangman_frontend/static/media/brand-icons.e8c322de.woff2"
   },
   {
+    "revision": "faff92145777a3cbaf8e7367b4807987",
+    "url": "/hangman_frontend/static/media/icons.faff9214.woff"
+  },
+  {
     "revision": "a046592bac8f2fd96e994733faf3858c",
     "url": "/hangman_frontend/static/media/brand-icons.a046592b.woff"
   },
   {
-    "revision": "8e3c7f5520f5ae906c6cf6d7f3ddcd19",
-    "url": "/hangman_frontend/static/media/icons.8e3c7f55.eot"
+    "revision": "0ab54153eeeca0ce03978cc463b257f7",
+    "url": "/hangman_frontend/static/media/icons.0ab54153.woff2"
   },
   {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
     "url": "/hangman_frontend/static/media/brand-icons.13db00b7.eot"
   },
   {
-    "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
-    "url": "/hangman_frontend/static/media/icons.b87b9ba5.ttf"
-  },
-  {
     "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
     "url": "/hangman_frontend/static/media/brand-icons.c5ebe0b3.ttf"
   },
   {
+    "revision": "8e3c7f5520f5ae906c6cf6d7f3ddcd19",
+    "url": "/hangman_frontend/static/media/icons.8e3c7f55.eot"
+  },
+  {
     "revision": "82f60bd0b94a1ed68b1e6e309ce2e8c3",
     "url": "/hangman_frontend/static/media/outline-icons.82f60bd0.svg"
+  },
+  {
+    "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
+    "url": "/hangman_frontend/static/media/icons.b87b9ba5.ttf"
   },
   {
     "revision": "962a1bf31c081691065fe333d9fa8105",
@@ -92,7 +92,7 @@ self.__precacheManifest = [
     "url": "/hangman_frontend/static/media/brand-icons.a1a749e8.svg"
   },
   {
-    "revision": "66c06238755ca7111b5efb4ea982078c",
+    "revision": "c4ded1fafca474ee7dce0e8dda73ad48",
     "url": "/hangman_frontend/index.html"
   }
 ];
