@@ -76,12 +76,12 @@ self.__precacheManifest = [
     "url": "/hangman_frontend/static/media/brand-icons.13db00b7.eot"
   },
   {
-    "revision": "82f60bd0b94a1ed68b1e6e309ce2e8c3",
-    "url": "/hangman_frontend/static/media/outline-icons.82f60bd0.svg"
-  },
-  {
     "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
     "url": "/hangman_frontend/static/media/brand-icons.c5ebe0b3.ttf"
+  },
+  {
+    "revision": "82f60bd0b94a1ed68b1e6e309ce2e8c3",
+    "url": "/hangman_frontend/static/media/outline-icons.82f60bd0.svg"
   },
   {
     "revision": "962a1bf31c081691065fe333d9fa8105",
@@ -92,7 +92,7 @@ self.__precacheManifest = [
     "url": "/hangman_frontend/static/media/brand-icons.a1a749e8.svg"
   },
   {
-    "revision": "eed98d6a0f6eacd8c8d4dca8bd251efa",
+    "revision": "eba84f5da6228671b5383a040c01270d",
     "url": "/hangman_frontend/index.html"
   }
 ];
