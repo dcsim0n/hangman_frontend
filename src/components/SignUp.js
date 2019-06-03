@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Image, Segment, Loader } from 'semantic-ui-react'
 import FaceImg from '../assets/face_small.png'
 import {api_base} from '../apiUri'
 
@@ -10,6 +10,7 @@ class SignUp extends React.Component {
     super(props)
   
     this.state = {
+      fetching:false,
       name: "",
       password: ""
     }
@@ -19,6 +20,7 @@ class SignUp extends React.Component {
   
 
   saveUser = (event) => {
+    this.setState({fetching:true})
     event.preventDefault()
     fetch(api_base + "/users", {
       method: "POST",
@@ -27,9 +29,10 @@ class SignUp extends React.Component {
       },
       body: JSON.stringify(this.state)
     }).then(res => res.json())
-   .then(user =>{ 
-     this.props.history.push("/")
-     this.props.setUser(user)
+   .then(user =>{
+      this.setState({fetching:false})
+      this.props.history.push("/")
+      this.props.setUser(user)
     })
     event.target.reset()
   }
@@ -44,6 +47,8 @@ class SignUp extends React.Component {
         <Image src={FaceImg} />Create New Account
       </Header>
       {/* <p><p> {this.props.errors ? this.props.errors.error : null} </p></p> */}
+       {this.state.fetching ? <Loader inline active/> : null }
+
       <Form size='large' onSubmit={this.saveUser}>
         <Segment stacked>
           <Form.Input fluid icon='user' iconPosition='left' className="name" placeholder='Username' onChange={(e) => this.setState({ name: e.target.value })}/>
