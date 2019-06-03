@@ -1,23 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "f349254763a83ce63a38",
+    "revision": "d520c01a1a61d5215d14",
     "url": "/hangman_frontend/static/css/main.d3146144.chunk.css"
   },
   {
-    "revision": "f349254763a83ce63a38",
-    "url": "/hangman_frontend/static/js/main.e8c58d00.chunk.js"
+    "revision": "d520c01a1a61d5215d14",
+    "url": "/hangman_frontend/static/js/main.c504cf42.chunk.js"
   },
   {
     "revision": "c528b6fa50ab2ac04c91",
     "url": "/hangman_frontend/static/js/runtime~main.135e9468.js"
   },
   {
-    "revision": "5fa6a2374ee6d6ae70be",
+    "revision": "0c29c98c338ffe843d29",
     "url": "/hangman_frontend/static/css/2.b5289a83.chunk.css"
   },
   {
-    "revision": "5fa6a2374ee6d6ae70be",
-    "url": "/hangman_frontend/static/js/2.26b6e28f.chunk.js"
+    "revision": "0c29c98c338ffe843d29",
+    "url": "/hangman_frontend/static/js/2.8548283d.chunk.js"
   },
   {
     "revision": "18074838c945b12255cccceb637085e7",
@@ -32,12 +32,12 @@ self.__precacheManifest = [
     "url": "/hangman_frontend/static/media/flags.9c74e172.png"
   },
   {
-    "revision": "cd6c777f1945164224dee082abaea03a",
-    "url": "/hangman_frontend/static/media/outline-icons.cd6c777f.woff2"
-  },
-  {
     "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
     "url": "/hangman_frontend/static/media/outline-icons.ef60a4f6.woff"
+  },
+  {
+    "revision": "cd6c777f1945164224dee082abaea03a",
+    "url": "/hangman_frontend/static/media/outline-icons.cd6c777f.woff2"
   },
   {
     "revision": "701ae6abd4719e9c2ada3535a497b341",
@@ -68,12 +68,12 @@ self.__precacheManifest = [
     "url": "/hangman_frontend/static/media/icons.8e3c7f55.eot"
   },
   {
-    "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
-    "url": "/hangman_frontend/static/media/icons.b87b9ba5.ttf"
-  },
-  {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
     "url": "/hangman_frontend/static/media/brand-icons.13db00b7.eot"
+  },
+  {
+    "revision": "b87b9ba532ace76ae9f6edfe9f72ded2",
+    "url": "/hangman_frontend/static/media/icons.b87b9ba5.ttf"
   },
   {
     "revision": "c5ebe0b32dc1b5cc449a76c4204d13bb",
@@ -92,7 +92,7 @@ self.__precacheManifest = [
     "url": "/hangman_frontend/static/media/brand-icons.a1a749e8.svg"
   },
   {
-    "revision": "eba84f5da6228671b5383a040c01270d",
+    "revision": "0b55914d577e4a6e6ab44ab3182180d5",
     "url": "/hangman_frontend/index.html"
   }
 ];
