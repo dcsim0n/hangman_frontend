@@ -26,8 +26,8 @@ Built using React and Semantic-UI for frontend. Ruby on Rails hosts the backend 
 
 If you'd like to fork and deploy locally in your own environment
 
-1 fork or clone **master** branch, the code base will connect to our hosted heroku api by default. If you'd like to run your own backend, adjust the url's in the **apiUri.js** file. 
+1. fork or clone **master** branch, the code base will connect to our hosted heroku api by default. If you'd like to run your own backend, adjust the url's in the **apiUri.js** file. 
 
-2 **yarn install** to install dependincies
-3 **yarn start** to launch webpack dev server and a web browser
+2. **yarn install** to install dependincies
+3. **yarn start** to launch webpack dev server and a web browser
 
