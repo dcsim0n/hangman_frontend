@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://dcsim0n.github.io/hangman_frontend",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "gh-pages": "^2.0.1",
     "indicative": "^5.0.8",
     "material-ui": "^0.20.2",
